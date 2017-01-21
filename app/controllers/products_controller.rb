@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
 	def index
-		@products = Product.order(created_at: :desc).limit(20);
+		@products = Product.order(params[:user_id])
 	end
 	def show
-		@product = Product.find(params[:id])
+		@product = Product.find_by(id: params[:id])
 		if @product.present?
 			render 'show'
 		else
@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
 		end
 	end
 	def new
+		@user = User.find_by(id: params[:user_id])
 		@product = Product.new
 		render 'new'
 	end
@@ -18,9 +19,13 @@ class ProductsController < ApplicationController
 		@product = Product.new(
 			:title => params[:product][:title],
 			:description => params[:product][:description],
-			:deadline => params[:product][:deadline])
+			:deadline => params[:product][:deadline],
+			:user_id => params[:user_id]
+			)
+
 		@product.save
-		redirect_to '/products/#{@product.id}'
+		
+		redirect_to user_product_path(@product.user, @product)
 	end
 end
 

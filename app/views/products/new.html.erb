@@ -1,5 +1,5 @@
 <h1>Añadir Producto</h1>
-<%= form_for @product do |f| %>
+<%= form_for [@user, @product] do |f| %>
 	<%= f.label :Titulo%>
 	<%= f.text_field :title %>
 
@@ -8,11 +8,6 @@
 
 	<%= f.label :Fecha_oferta %> 
     <%= f.date_field :deadline%> 
-
-	<%#= f.label :Creado_por %>
-    <%#= f.select :users, :index %>
-
-
 
 	<%= f.button %>
 	<% end %>

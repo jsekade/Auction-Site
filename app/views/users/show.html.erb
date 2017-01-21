@@ -2,3 +2,4 @@
 <h1><%= @user.name %></h1> 
 <h3>Email: <%= @user.email_address %></3>
 <h4>Creado: <%= @user.created_at %></h4>
+<h3><%= link_to "Crear nuevo producto", new_user_product_path(@user) %></h3>

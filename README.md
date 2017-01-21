@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# Auction-Site
+#Auction site where users can submit products to sell and other users can bid on them.
+>>>>>>> 0693882e19616f05db651b8501eba5355d1da259
