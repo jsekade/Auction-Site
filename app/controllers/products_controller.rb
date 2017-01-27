@@ -1,13 +1,15 @@
 class ProductsController < ApplicationController
 	def index
 		@products = Product.order(params[:user_id])
+		@product = Product.find_by(id: params[:id])
 	end
 	def show
+		
 		@product = Product.find_by(id: params[:id])
 		if @product.present?
 			render 'show'
 		else
-			render 'no_product_finder'
+			render 'no_product_finder' 
 		end
 	end
 	def new

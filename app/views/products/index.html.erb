@@ -1,5 +1,6 @@
 <ul>
 	<% @products.each do |product| %>
-	<li><%= product.title %></li>
+	<li><%= product.title%> <br>
+	<%= link_to "Ver producto", "/users/:user_id/products/#{product.id}" %></li>
 	<% end %>
 </ul>
