@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
    get '/', to: 'site#home'
   # get '/users', to: 'users#index'
@@ -10,8 +11,13 @@ Rails.application.routes.draw do
   # get '/users/:user_id/products/new', to: 'products#new', as: :products
   # get '/users/:user_id/products/:id', to: 'products#show'
   # post '/users/:user_id/products', to: 'products#create' 
+  resources :products do
+    resources :bids, only:[:create]
+  end
+
   resources :users do
     resources :products
+    
   end
 
 end

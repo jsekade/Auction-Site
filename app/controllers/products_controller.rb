@@ -4,14 +4,15 @@ class ProductsController < ApplicationController
 		@product = Product.find_by(id: params[:id])
 	end
 	def show
-		
 		@product = Product.find_by(id: params[:id])
 		if @product.present?
-			render 'show'
-		else
-			render 'no_product_finder' 
+			@bid = Bid.new
 		end
-	end
+			render 'show'
+		#else
+		#	redirect_to 'no_product_finder' 
+		end
+		
 	def new
 		@user = User.find_by(id: params[:user_id])
 		@product = Product.new

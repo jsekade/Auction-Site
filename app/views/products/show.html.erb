@@ -2,3 +2,13 @@
 <h1><%= @product.title %></h1> 
 <h3>Descripcion: <%= @product.description %></3>
 <h4>En Venta hasta: <%= @product.deadline %></h4>
+<h4>Añadir Puja</h4>
+<%= form_for [@product, @bid] do |f| %>
+	<%= f.label :Puja %>
+	<%= f.number_field :amaunt %>
+
+	<%= label_tag :Email %>
+	<%= email_field_tag :email_address %>
+	
+	<%= f.button %>
+	<% end %>
